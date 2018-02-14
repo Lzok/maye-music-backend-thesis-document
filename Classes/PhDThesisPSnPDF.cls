@@ -729,6 +729,8 @@ wish to left align your text}
 
 \RequirePackage{fancyhdr} % Define custom header
 
+\renewcommand{\chaptername}{Capítulo} 
+
 % Style 1: Sets Page Number at the Top and Chapter/Section Name on LE/RO
 \fancypagestyle{PageStyleI}{
   \renewcommand{\chaptermark}[1]{\markboth{##1}{}}
