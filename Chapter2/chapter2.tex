@@ -36,7 +36,20 @@ La última versión de este procolo es la 2.0, definida en el RFC 7540 en el añ
 gran avance en esta última versión contribuye a disminuir el tráfico innecesario en 
 la red definiendo un mapeo optimizado de la semántica de HTTP a una conexión subyacente.
 
+El modo de funcionamiento es muy sencillo. Esta compuesto por dos partes quienes son 
+las partes que se comunican, estas son el cliente y el servidor. Básicamente el cliente
+envía peticiones al servidor y este debe servirlas en caso de poder. De lo contrario, 
+el servidor devolverá el error correspondiente a alguna de las posibles causas. Algunas 
+de las más comunes son que el recurso que el servidor busca no se encuentre, que el 
+recurso no esté disponible, que se haya movido de lugar o que haya habido algún error 
+interno.
 
+\begin{figure}[htbp!] 
+\centering    
+\includegraphics[width=0.5\textwidth]{http1}
+\caption[HTTP]{Este es el comportamiento con información básica del protocolo HTTP}
+\label{fig:http-behavior}
+\end{figure}
 
 
 \subsection{API REST}
