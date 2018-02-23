@@ -54,7 +54,7 @@ interno.
 
 \subsection{API REST}
 
-La sigla REST responde a Representational State Transfer- Transferencia de Estado
+La sigla REST responde a Representational State Transfer - Transferencia de Estado
 Representacional. Es cualquier interfaz entre sistemas que use HTTP para obtener
 datos o generar operaciones sobre esos datos en todos los formatos posibles, como XML y
 JSON. También podemos decir que es un estilo de arquitectura para proveer estándares entre
@@ -65,17 +65,6 @@ anterior. REST nace en el año 2000.
 
 La arquitectura REST describe seis restricciones que definen la base del estilo 
 RESTful:
-
-\begin{itemize}
-   \item first item
-   \begin{itemize}
-     \item first nested item
-     \item second nested item
-   \end{itemize}
-   \item second item
-   \item third item
-\end{itemize}
-
 
 \begin{itemize}
    \item Interfaz Uniforme
@@ -140,6 +129,52 @@ RESTful:
 	
 	Los servidores son temporalmente capaces de transferir al cliente funcionalidades o 
 	código que éstos puedan ejecutar.
+
+\end{itemize}
+
+
+\subsubsection{Recomendaciones}
+
+De las previas restricciones de REST nacen ciertas recomendaciones que buscan impulsar la 
+efectividad y entendimiento entre sistemas.
+
+\begin{itemize}
+
+	\item Usar los verbos HTTP de manera que signifiquen algo
+	
+	Hoy en día, cualquier consumidor de APIs es capaz de enviar los verbos (HTTP) GET, 
+	POST, PUT y DELETE. Estos verbos dejan bien en claro cual es la intención del request. 
+	Por ejemplo, es bien sabido que un request con el vervo GET no modificará ningún 
+	recurso en el servidor, sino que únicamente los solicita.
+	
+	\item Nombres claros en los recursos
+	
+	Tener nombres claros en los recursos o URIs, por ejemplo /documento/1 en lugar de 
+	/api?type=documento&id=1, mejora mucho la claridad del request. Además, los nombres 
+	apropiados en los recursos nos dan un contexto del servicio mejorando el entendimiento 
+	de éste. 
+	
+	Los nombres de los recursos deben ser sustantivos, para los verbos se utilizan los 
+	verbos HTTP.
+	
+	\item XML y JSON
+	
+	No nos extenderemos demasiado en este apartado porque podríamos dedicar un capítulo 
+	entero para cada uno.
+	
+	Se recomienda favorecer el uso de JSON por defecto aunque es bueno ofrecer ambos para 
+	que el cliente elija el que desea obtener siempre y cuando los costos de implementar 
+	esto no sean extravagantes.
+	
+	\item Considerar conectividad
+	
+	Uno de los principios de REST es la conectividad (mediante links hipermedia). Los 
+	servicios de por si son útiles sin ellos, pero la realidad es que una API se vuelve 
+	mucho mas útil, descriptiva y navegable cuando ciertos links son enviados en la 
+	respuesta. Por ejemplo, en la respuesta de una API que soporta paginación en que se 
+	retorna una colección de recursos, es muy útil que se retornen links para navegar 
+	la paginación de la colección tales como "primer página", "última página", 
+	"siguiente", "anterior".
 
 \end{itemize}
 
