@@ -150,7 +150,7 @@ efectividad y entendimiento entre sistemas.
 	\item Nombres claros en los recursos
 	
 	Tener nombres claros en los recursos o URIs, por ejemplo /documento/1 en lugar de 
-	/api?type=documento&id=1, mejora mucho la claridad del request. Además, los nombres 
+	/api?type=documento\&id=1, mejora mucho la claridad del request. Además, los nombres 
 	apropiados en los recursos nos dan un contexto del servicio mejorando el entendimiento 
 	de éste. 
 	
@@ -178,10 +178,33 @@ efectividad y entendimiento entre sistemas.
 
 \end{itemize}
 
- 
-\subsection{AJAX}
 
 \subsection{JWT}
+
+JSON Web Token por sus siglas en inglés, es una forma segura de representar información 
+entre dos partes. Esta manera de representar la información fue definida en el RFC 7519.
+
+\subsubsection{¿En qué escenarios se debería usar JWT?}
+\begin{itemize}
+	\item Escenarios de autenticación
+	
+	Este es el escenario más común para usar JWT. Una vez que el usuario es logueado en el 
+	sistema, cada request que se le haga luego al servidor deberá incluir el JWT, 
+	permitiendo al usuario el acceso a rutas, servicios y recursos. 
+	
+	\item Intercambio de información
+	
+	JWT es una buena manera de transmitir información de manera segura entre partes. Una 
+	de las causas de esto es debido a que los JWTs pueden ser firmados, se puede estar 
+	seguros de que quienes envían la información son en efecto quienes dicen ser. 
+\end{itemize}
+
+\begin{figure}[htbp!] 
+\centering    
+\includegraphics[width=0.6\textwidth]{jwt1}
+\caption[JWT]{Como una app usa JWT para verificar la autenticidad de un usuario.}
+\label{fig:jwt-auth-user}
+\end{figure}
 
 \subsection{Memoria Cache}
 
