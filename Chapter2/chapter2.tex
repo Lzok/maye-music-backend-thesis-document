@@ -206,6 +206,72 @@ entre dos partes. Esta manera de representar la información fue definida en el 
 \label{fig:jwt-auth-user}
 \end{figure}
 
+\subsubsection{Estructura del JWT}
+El JSON Web Token esta formado de tres partes separadas por un punto. Comúnmente es una 
+cadena de texto con el siguiente formato: header.payload.signature
+
+\begin{itemize}
+	\item Header
+		
+	El header del JWT contiene información sobre como debe calcularse la firma del JWT. 
+	Un header es un objeto JSON con el siguiente formato:
+	
+	\begin{figure}[H] 
+		\centering    
+		\includegraphics[width=0.3\textwidth]{jwt2}
+		\caption[JWT Header]{Objeto JSON que compone el header del JWT.}
+		\label{fig:jwt-header}
+	\end{figure}
+	
+	En este JSON que compone el header, el valor de la key "typ" nos dice que el objeto 
+	es un JWT y el valor de la key "alg" nos dice cual es el algoritmo de hashing para 
+	crear la firma del JWT. Luego, esto se codificará usando base64.
+	
+	
+	\item Payload
+	
+	En el payload del JWT vivirán los datos que queremos almacenar en este. En el siguiente 
+	ejemplo, dentro del payload vivirá únicamente el id del usuario.
+	
+	\begin{figure}[H] 
+		\centering    
+		\includegraphics[width=0.5\textwidth]{jwt3}
+		\caption[JWT Payload]{Datos dentro del payload. En este caso, el id de usuario.}
+		\label{fig:jwt-payload}
+	\end{figure}
+	
+	En el payload se puede guardar tanta información como se quiera. Hay que tener presente 
+	que mientras mas información guardemos, más largo será el payload de nuestro token.
+	
+	Tal como sucede con el header, el payload es luego codificado en base64.
+	
+	\item Signature
+	
+	Para crear la firma, se debe tomar el header en base64, el payload en base64, un string 
+	secreto que se utiliza para el hasheo en la encriptación y el algoritmo especificado 
+	en el header bajo la key "alg". 
+	
+	En nuestro caso, el string resultante del header en base64 es (sin comillas) 
+	"eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9", el payload 
+	"eyJ1c2VySWQiOiJiMDhmODZhZi0zNWRhLTQ4ZjItOGZhYi1jZWYzOTA0NjYwYmQifQ", y usando como 
+	string secreto, utilizaremos justamente la palabra "secret". Entonces nuestra signature 
+	resultante es "\texttt{-}xN\_h82PHVTCMA9vdoHrcZxH\texttt{-}x5mb11y1537t3rGzcM".
+	
+	Juntando estas tres partes llegamos a tener nuestro JWT completo, este se muestra en 
+	la siguiente figura.
+	
+	\begin{figure}[H] 
+		\centering    
+		\includegraphics[width=0.5\textwidth]{jwt4}
+		\caption[JWT Complete]{JWT Completo.}
+		\label{fig:jwt-complete}
+	\end{figure}
+	
+\end{itemize}
+
+Es importante que sepamos que el propósito del JWT no es esconder ni ofuscar datos, sino 
+poder probar que los datos enviados han sido generados realmente por una fuente segura.
+
 \subsection{Memoria Cache}
 
 
