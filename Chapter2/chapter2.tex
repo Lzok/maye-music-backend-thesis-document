@@ -272,8 +272,24 @@ cadena de texto con el siguiente formato: header.payload.signature
 Es importante que sepamos que el propósito del JWT no es esconder ni ofuscar datos, sino 
 poder probar que los datos enviados han sido generados realmente por una fuente segura.
 
-\subsection{Memoria Cache}
 
+\subsection{Server/App Cache}
+
+En esta sección sobre server/app caching se hará una breve introducción al concepto que
+luego se profundizará en el capítulo sobre Redis en la siguiente sección.
+
+"Cachear" se refiere al guardado de respuestas reusables para 
+que las siguientes peticiones (requests) se hagan de una manera más rápida y consumiendo 
+menos recursos, por ejemplo, sin necesidad de hacer una llamada a la base de datos o sin 
+ejecutar numerosas funciones.
+
+
+\begin{figure}[H] 
+	\centering    
+	\includegraphics[width=0.5\textwidth]{cache1}
+	\caption[Cache]{Cache funcionamiento básico.}
+	\label{fig:cache-basics}
+\end{figure}
 
 \section{Herramientas y tecnologías utilizadas}
 
@@ -282,6 +298,8 @@ poder probar que los datos enviados han sido generados realmente por una fuente 
 \subsection{Lumen Framework}
 
 \subsection{SQL}
+
+\subsection{Redis}
 
 \subsection{Taiga}
 
